@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>dataBinding</title>
+  </head>
+  <body>
+    <div id="app">
+      <!-- 属性へのデータバインディングにはv-vindディレクティブを使用する -->
+      <input type="text" v-bind:value="message" />
+      <!-- 表示非表示の切り替えにはv-ifディレクティブを使用する -->
+      <p v-if="toggle">Hello</p>
+      <!-- 繰り返しにはv-forティレクティブを使用する -->
+      <ol>
+        <li v-for="color in colors">{{color}}</li>
+      </ol>
+      <ul>
+        <li v-for="(value,key) in user">{{key}}:{{value}}</li>
+      </ul>
+      <!-- ボタンクリック時のイベントの登録にはv-onティレクティブを使用する -->
+      <button v-on:click="onClick">Click!</button>
+      <p>{{now}}</p>
+      <!-- 双方向データバインディング実装 -->
+      <p>
+        <input type="text" v-model="message" />
+      </p>
+      <p>
+        <input type="text" v-model="message" />
+      </p>
+      <!-- データオブジェクトの中身を可視化 -->
+      <pre>{{ $data }}</pre>
+
+      <hello-component></hello-component>
+      <hello-component></hello-component>
+    </div>
+
+    <script src="https://unpkg.com/vue@3.1.5"></script>
+    <script src="js/dataBinding.js"></script>
+  </body>
+</html>
